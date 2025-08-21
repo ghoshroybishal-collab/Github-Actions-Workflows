@@ -1,4 +1,4 @@
-name: Webhook Triggered Workflow
+name: "Webhook Triggered Workflow"
 
 on:
   repository_dispatch:
