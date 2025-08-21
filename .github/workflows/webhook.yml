@@ -1,0 +1,17 @@
+name: Webhook Triggered Workflow
+
+    on:
+      repository_dispatch:
+        types:
+          - webhook
+
+    jobs:
+      build:
+        runs-on: ubuntu-latest
+        steps:
+          - name: Checkout code
+            uses: actions/checkout@v4
+          - name: Process webhook payload
+            run: |
+              echo "Received webhook event: ${{ github.event.action }}"
+              echo "Payload details: ${{ github.event.client_payload.message }}"
